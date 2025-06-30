@@ -1,0 +1,37 @@
+class Solution {
+    public boolean canPartition(int[] nums) {
+        //do sum of all elements
+        int sum = 0;
+        //enhanced for loop
+        for(int num : nums){
+            sum = sum + num;
+        }
+        if(sum % 2 != 0){
+        return false;
+        }
+        int target = sum / 2;
+        //Array = Wrapper
+        //object default value is null
+        Boolean[][] cache = new Boolean[nums.length][target + 1];
+        return helper(nums, 0 , target, cache);
+    }
+     boolean helper(int nums[], int index, int target, Boolean[][] cache ){
+        //base case
+        if(target == 0){
+            return true;
+        }
+        if(target < 0 || nums.length == index){
+            return false;
+        }
+        if(cache[index][target] != null){
+            return cache[index][target];
+        }
+        //we have two choices
+        //1. pick it
+        boolean pickIt = helper(nums, index + 1, target - nums[index], cache);
+        //2. not pick it
+        boolean notPickIt = helper(nums, index + 1, target, cache);
+        cache [index][target] =  pickIt || notPickIt;
+        return cache[index][target];
+    }
+}
