@@ -1,0 +1,22 @@
+class Solution {
+
+public boolean compare(char opening, char closing){
+    return ((opening == '(' && closing == ')') || (opening == '[' && closing == ']') || (opening == '{' && closing == '}'));
+}
+
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for(char ch : s.toCharArray()){
+            if(ch == '(' || ch == '[' || ch == '{'){
+                stack.push(ch);
+            }
+            else if(!stack.isEmpty() && compare(stack.peek(), ch)){
+                stack.pop();
+            }
+            else{
+                return false;
+            }
+        }
+        return stack.isEmpty();
+    }
+}
