@@ -1,0 +1,80 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+        //Kadane's Algo
+        int sum = nums[0];
+        int max = sum;
+        for(int i = 1; i < nums.length; i++){
+            sum = sum + nums[i];
+            sum = Math.max(sum, nums[i]);
+            max = Math.max(max, sum);
+        }
+        return max;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+// int sum = nums[0];
+//         int max = sum;
+//         for(int i = 1; i < nums.length; i++){
+//             sum = sum + nums[i]; //we might have negative numbers
+//             //if sum goes negative
+//             sum = Math.max(sum, nums[i]);
+//             max = Math.max(max, sum);
+//         }
+//         return max;
+
+
+// class Solution {
+//     //Brute Force O(N^2)
+//     public int maxSubArray(int[] nums) {
+//         int max = Integer.MIN_VALUE;
+//         for(int i = 0; i < nums.length; i++){
+//             int currentSum = 0;
+//             for(int j = i;  j < nums.length; j++)  {
+//                 currentSum = currentSum + nums[j];
+//                 max = Math.max(max, currentSum);
+//             }      
+//         }
+//         return max;
+//     }
+// }
+
+
+
+// class Solution {
+//     public int maxSubArray(int[] nums) {
+//         int maxi = Integer.MIN_VALUE;
+//         int sum = 0;
+
+//         for(int i = 0; i < nums.length; i++){
+//             sum += nums[i];
+
+//             if(sum > maxi){
+//                 maxi = sum;
+//             }
+//             if(sum < 0){
+//                 sum = 0;
+//             }
+//         }
+//         return maxi;
+//     }
+// }
+
+
+
+
+
+
+
+
+
+
