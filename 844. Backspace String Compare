@@ -1,0 +1,19 @@
+class Solution {
+    public boolean backspaceCompare(String s, String t) {
+        String first = result(s);
+        String second = result(t);
+        return first.equals(second);
+    }
+
+    String result(String s){
+        StringBuilder stack = new StringBuilder();
+        for(char letter : s.toCharArray()){
+           if(letter != '#'){
+            stack.append(letter);
+           }else if(stack.length() > 0){
+            stack.deleteCharAt(stack.length()-1);
+           }
+        }
+        return stack.toString();
+    }
+}
