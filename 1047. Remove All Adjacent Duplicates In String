@@ -1,0 +1,14 @@
+class Solution {
+    public String removeDuplicates(String s) {
+        StringBuilder stack = new StringBuilder();
+        for(char letter : s.toCharArray()){
+            if(stack.length() > 0 && stack.charAt(stack.length()-1) == letter){
+                stack.deleteCharAt(stack.length() - 1);
+            }
+            else{
+                stack.append(letter);
+            }
+        }
+        return stack.toString();
+    }
+}
