@@ -1,0 +1,16 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        if(nums.length == 1){
+            return false;
+        }
+        int n = nums.length;
+        Set < Integer > sets = new HashSet<>();
+        for(int i = 0; i < n ; i++){
+            if(sets.contains(nums[i])){
+                return true;
+            }
+            sets.add(nums[i]);
+        }
+        return false;
+    }
+}
