@@ -15,7 +15,7 @@ This repo showcases **300+ well-structured and optimized solutions** to LeetCode
 ## 👨‍💻 Tech Stack
 
 - **Languages Used**: Java 
-- **Tools**: Git, Markdown, LeetCode Playground  
+- **Tools**: LeetCode Playground  
 
 ---
 
