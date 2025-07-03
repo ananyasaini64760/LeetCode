@@ -13,11 +13,11 @@ class Solution {
         }
         bigList.add(new ArrayList<>(smallList));
         for(int i = index; i < nums.length; i++){
-            if(!smallList.contains(nums[i])){
-                smallList.add(nums[i]);
-                helper(nums, i, smallList, bigList);
-                smallList.remove(smallList.size()-1);
-            }
+            
+            smallList.add(nums[i]);
+            helper(nums, i+1, smallList, bigList);
+            smallList.remove(smallList.size()-1);
+            
         }
     }
 }
