@@ -22,11 +22,12 @@ class Solution {
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         int level = 0;
+
         while(!queue.isEmpty()){
             int levelSize = queue.size();
             List<Integer> smallList = new ArrayList<>();
             level++;
-            for(int i = 0; i < levelSize; i++){
+            for(int i = 0; i<levelSize; i++){
                 TreeNode curr = queue.remove();
                 smallList.add(curr.val);
                 if(curr.left != null){
@@ -37,7 +38,7 @@ class Solution {
                 }
             }
             if(level % 2 == 0){
-                Collections.reverse(smallList);
+                    Collections.reverse(smallList);
             }
             bigList.add(smallList);
         }
