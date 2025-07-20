@@ -1,6 +1,5 @@
 class Solution {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        ArrayList<Integer> result = new ArrayList<>();
         ArrayList<ArrayList<Integer>> graph = new ArrayList<>();
         Queue<Integer> queue = new LinkedList<>();
         int count = 0;
@@ -26,7 +25,6 @@ class Solution {
         }
         while(!queue.isEmpty()){
             int curr = queue.poll();
-            result.add(curr);
             for(int neighbour : graph.get(curr)){
                 indegree[neighbour]--;
                 if(indegree[neighbour] == 0){
